@@ -10,7 +10,7 @@ import java.util.List;
 public class UserController {
     @GetMapping("/user")
     @ResponseBody
-    public List<User> query(@RequestParam("username")String nickname){
+    public List<User> query(@RequestParam(value = "username",required = false,defaultValue = "tom")String nickname){
         System.out.println(nickname);
         List<User> users = new ArrayList<>();
         users.add(new User());
