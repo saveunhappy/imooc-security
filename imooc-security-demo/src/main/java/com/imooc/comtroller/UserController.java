@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 public class UserController {
     @GetMapping("/user")
-    @ResponseBody
     public List<User> query(UserQueryCondition condition){
         System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
         List<User> users = new ArrayList<>();
@@ -21,4 +20,11 @@ public class UserController {
         users.add(new User());
         return users;
     }
+    @GetMapping(value = "/user/{id:\\d+}")
+    public User getInfo(@PathVariable String id){
+        User user = new User();
+        user.setUsername("tom");
+        return user;
+    }
+
 }
