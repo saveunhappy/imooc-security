@@ -3,6 +3,7 @@ package com.imooc.comtroller;
 import com.fasterxml.jackson.annotation.JsonView;
 import com.imooc.dto.User;
 import com.imooc.dto.UserQueryCondition;
+import com.imooc.exception.UserException;
 import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 import org.springframework.validation.BindingResult;
@@ -30,9 +31,10 @@ public class UserController {
     @GetMapping(value = "/{id:\\d+}")
     @JsonView(User.UserDetailView.class)
     public User getInfo(@PathVariable String id) {
-        User user = new User();
-        user.setUsername("tom");
-        return user;
+        throw new UserException(id);
+//        User user = new User();
+//        user.setUsername("tom");
+//        return user;
     }
 
     @DeleteMapping(value = "/{id:\\d+}")
@@ -40,10 +42,10 @@ public class UserController {
         System.out.println(id);
     }
     @PostMapping
-    public User createUser(@Valid @RequestBody User user, BindingResult errors) {
-        if (errors.hasErrors()) {
-            errors.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
-        }
+    public User createUser(@Valid @RequestBody User user) {
+//        if (errors.hasErrors()) {
+//            errors.getAllErrors().forEach(error -> System.out.println(error.getDefaultMessage()));
+//        }
         System.out.println(user.getId());
         System.out.println(user.getUsername());
         System.out.println(user.getPassword());
