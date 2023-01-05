@@ -1,16 +1,20 @@
 package com.imooc.security.browser;
 
+import com.imooc.security.core.properties.SecurityProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import javax.annotation.Resource;
+
 @Configuration
 public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
+    @Autowired
+    private SecurityProperties securityProperties;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -22,11 +26,13 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
 //        http.httpBasic()
         http.formLogin()
-                .loginPage("/imooc-signIn.html")
+                .loginPage("/authentication/require")
                 .loginProcessingUrl("/authentication/form")
                 .and()
                 .authorizeRequests()
-                .antMatchers("/imooc-signIn.html").permitAll()
+//                .antMatchers("/imooc-signIn.html").permitAll()
+                .antMatchers("/authentication/require",securityProperties.getBrowser().getLoginPage()).permitAll()
+
                 .anyRequest()
                 .authenticated()
         .and().csrf().disable();
