@@ -26,7 +26,10 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
 //        http.httpBasic()
         http.formLogin()
+                //这里原来是指定的html页面，也可以指定成对应的Controller
                 .loginPage("/authentication/require")
+                //这个是前端的那个表单提交的地址，然后SpringSecurity会拿到请求中带的username和password进行校验
+                //
                 .loginProcessingUrl("/authentication/form")
                 .and()
                 .authorizeRequests()
