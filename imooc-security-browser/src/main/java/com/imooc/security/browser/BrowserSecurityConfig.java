@@ -28,7 +28,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
+//           http.httpBasic()就是弹出来一个框，让你输入账号密码。
+        //   http.formLogin()就是一个登陆页面，不指定的话就是项目自带的一个登陆页面。
 //        http.httpBasic()
         http.formLogin()
                 //这里原来是指定的html页面，也可以指定成对应的Controller
