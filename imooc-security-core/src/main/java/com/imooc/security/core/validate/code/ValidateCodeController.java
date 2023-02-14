@@ -18,8 +18,9 @@ import java.util.Random;
 
 @RestController
 public class ValidateCodeController {
-    private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
-    private static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
+//	public static final String SESSION_KEY = "";
+	private SessionStrategy sessionStrategy = new HttpSessionSessionStrategy();
+    public static final String SESSION_KEY = "SESSION_KEY_IMAGE_CODE";
     @GetMapping("/code/image")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ImageCode imageCode = createImageCode(request);
