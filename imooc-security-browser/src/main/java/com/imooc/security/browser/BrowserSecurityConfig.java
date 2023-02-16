@@ -42,7 +42,8 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
                 //这里原来是指定的html页面，也可以指定成对应的Controller
                 .loginPage("/authentication/require")
                 //这个是前端的那个表单提交的地址，然后SpringSecurity会拿到请求中带的username和password进行校验
-                //原来是/login,现在既然换了，那么就是从这个中拿到了。
+                //原来是/login,现在既然换了，那么就是从这个中拿到了，而且这个原来是请求的/login请求，现在换成这个就是这个
+                //由UsernamePasswordAuthenticationFilter来接收username和password了。
                 .loginProcessingUrl("/authentication/form")
                 .successHandler(imoocAuthenticationSuccessHandler)
                 .failureHandler(imoocAuthenticationFailureHandler)
