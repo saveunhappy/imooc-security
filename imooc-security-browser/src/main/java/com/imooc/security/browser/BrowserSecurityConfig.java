@@ -53,7 +53,7 @@ public class BrowserSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/imooc-signIn.html").permitAll()
                 .antMatchers("/authentication/require",
                         securityProperties.getBrowser().getLoginPage()
-                ,"/code/image").permitAll()
+                ,"/code/*").permitAll()
 
                 .anyRequest()
                 .authenticated()

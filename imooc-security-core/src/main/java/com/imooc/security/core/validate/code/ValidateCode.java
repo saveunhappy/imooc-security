@@ -1,6 +1,5 @@
 package com.imooc.security.core.validate.code;
 
-import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
 
 public class ValidateCode {
