@@ -1,7 +1,6 @@
-package com.imooc.security.browser.authentication.mobile;
+package com.imooc.security.core.authentication.mobile;
 
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
