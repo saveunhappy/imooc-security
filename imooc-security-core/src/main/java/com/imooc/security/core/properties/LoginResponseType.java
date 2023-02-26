@@ -1,6 +1,7 @@
 package com.imooc.security.core.properties;
 
-public enum LoginType {
+public enum LoginResponseType {
+
     REDIRECT,
     JSON
 }

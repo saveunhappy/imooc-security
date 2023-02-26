@@ -2,7 +2,7 @@ package com.imooc.security.browser.authentication;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.imooc.security.browser.support.SimpleResponse;
-import com.imooc.security.core.properties.LoginType;
+import com.imooc.security.core.properties.LoginResponseType;
 import com.imooc.security.core.properties.SecurityProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,7 +34,7 @@ public class ImoocAuthenticationFailureHandler extends SimpleUrlAuthenticationFa
             throws IOException, ServletException {
 
         logger.info("登录失败");
-        if (LoginType.JSON.equals(securityProperties.getBrowser().getLoginType())) {
+        if (LoginResponseType.JSON.equals(securityProperties.getBrowser().getLoginType())) {
             response.setStatus(HttpStatus.INTERNAL_SERVER_ERROR.value());
             response.setContentType("application/json;charset=UTF-8");
             response.getWriter().write(objectMapper.writeValueAsString(new SimpleResponse(e.getMessage())));

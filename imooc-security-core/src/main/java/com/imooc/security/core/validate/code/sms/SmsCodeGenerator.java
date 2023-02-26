@@ -1,6 +1,8 @@
-package com.imooc.security.core.validate.code;
+package com.imooc.security.core.validate.code.sms;
 
 import com.imooc.security.core.properties.SecurityProperties;
+import com.imooc.security.core.validate.code.ValidateCode;
+import com.imooc.security.core.validate.code.ValidateCodeGenerator;
 import org.apache.commons.lang.RandomStringUtils;
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 @Component("smsCodeGenerator")
-public class SmsCodeGenerator implements ValidateCodeGenerator{
+public class SmsCodeGenerator implements ValidateCodeGenerator {
 
 
     @Autowired

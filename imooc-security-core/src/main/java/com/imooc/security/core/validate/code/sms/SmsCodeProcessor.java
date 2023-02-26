@@ -1,4 +1,4 @@
-package com.imooc.security.core.validate.code;
+package com.imooc.security.core.validate.code.sms;
 
 import com.imooc.security.core.validate.code.sms.SmsCodeSender;
 import org.springframework.beans.factory.annotation.Autowired;
