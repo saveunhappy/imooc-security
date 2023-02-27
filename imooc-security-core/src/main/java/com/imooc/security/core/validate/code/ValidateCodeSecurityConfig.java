@@ -18,7 +18,12 @@ import org.springframework.stereotype.Component;
  */
 @Component("validateCodeSecurityConfig")
 public class ValidateCodeSecurityConfig extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
-
+    /**
+    * @Component("validateCodeFilter")
+     * public class ValidateCodeFilter extends OncePerRequestFilter implements InitializingBean {
+     * 原来是ValidateCodeFilter和SmsValidateCodeFilter,现在合成一个看，而且OncePerRequestFilter也是Filter的
+     * 子接口，所以根据迷你能找到。
+    * */
     @Autowired
     private Filter validateCodeFilter;
 

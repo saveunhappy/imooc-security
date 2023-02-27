@@ -32,7 +32,8 @@ public class SmsCodeAuthenticationSecurityConfig extends SecurityConfigurerAdapt
         //为什么设置一个userDetailsService 就够了，因为SmsCodeAuthenticationProvider的authenticate
         //方法需要UserService,所以就把它给设置进去。
         smsCodeAuthenticationProvider.setUserDetailsService(userDetailsService);
-        http.authenticationProvider(smsCodeAuthenticationProvider)
-        .addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+        http
+                .authenticationProvider(smsCodeAuthenticationProvider)
+                .addFilterAfter(smsCodeAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
