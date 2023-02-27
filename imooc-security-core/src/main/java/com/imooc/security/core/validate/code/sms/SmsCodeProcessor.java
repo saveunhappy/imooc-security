@@ -15,7 +15,7 @@ import com.imooc.security.core.validate.code.impl.AbstractValidateCodeProcessor;
  * @author zhailiang
  *
  */
-@Component("smsCodeProcessor")
+@Component("smsValidateCodeProcessor")
 public class SmsCodeProcessor extends AbstractValidateCodeProcessor<ValidateCode> {
 
     /**

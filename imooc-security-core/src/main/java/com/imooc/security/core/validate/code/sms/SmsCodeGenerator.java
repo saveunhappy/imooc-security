@@ -13,7 +13,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
-@Component("smsCodeGenerator")
+@Component("smsValidateCodeGenerator")
 public class SmsCodeGenerator implements ValidateCodeGenerator {
 
 
