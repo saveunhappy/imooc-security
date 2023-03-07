@@ -101,6 +101,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
      * @param
      * @return
      */
+
     private ValidateCodeType getValidateCodeType() {
         String type = StringUtils.substringBefore(getClass().getSimpleName(), "CodeProcessor");
         return ValidateCodeType.valueOf(type.toUpperCase());

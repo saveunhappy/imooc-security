@@ -96,7 +96,11 @@ public class ValidateCodeFilter extends OncePerRequestFilter implements Initiali
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
-
+		/**
+		 * 为什么这个filter会进入两次，因为你第一次在地址栏输入的时候，拦截一次，然后，还有一个接口要
+		 * 去看一下这个接口是否需要登陆，再拦截一下。
+		 *
+		 * */
 		ValidateCodeType type = getValidateCodeType(request);
 		if (type != null) {
 			logger.info("校验请求(" + request.getRequestURI() + ")中的验证码,验证码类型" + type);
