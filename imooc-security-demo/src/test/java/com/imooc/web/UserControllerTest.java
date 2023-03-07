@@ -39,7 +39,8 @@ public class UserControllerTest {
                 .param("age", "18")
                 .param("ageTo", "60")
                 .param("xxx", "yyy")
-                .contentType(MediaType.APPLICATION_JSON_UTF8))
+//                .contentType(MediaType.APPLICATION_JSON_UTF8))
+                .contentType(MediaType.APPLICATION_FORM_URLENCODED))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.length()").value(3))
                 .andReturn().getResponse().getContentAsString();

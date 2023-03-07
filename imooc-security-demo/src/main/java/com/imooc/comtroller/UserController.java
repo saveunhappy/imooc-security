@@ -19,8 +19,9 @@ import java.util.List;
 public class UserController {
     @GetMapping
     @JsonView(User.UserSimpleView.class)
-    public List<User> query(UserQueryCondition condition) {
-        System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
+//    public List<User> query(UserQueryCondition condition) {
+    public List<User> query(String username,int age,int ageTo,String xxx) {
+//        System.out.println(ReflectionToStringBuilder.toString(condition, ToStringStyle.MULTI_LINE_STYLE));
         List<User> users = new ArrayList<>();
         users.add(new User());
         users.add(new User());

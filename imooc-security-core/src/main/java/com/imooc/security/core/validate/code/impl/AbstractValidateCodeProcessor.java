@@ -57,7 +57,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
      */
     @SuppressWarnings("unchecked")
     private C generate(ServletWebRequest request) {
-        String type = getValidateCodeType(request).toString().toLowerCase();
+        String type = getValidateCodeType().toString().toLowerCase();
         String generatorName = type + ValidateCodeGenerator.class.getSimpleName();
         ValidateCodeGenerator validateCodeGenerator = validateCodeGenerators.get(generatorName);
         if (validateCodeGenerator == null) {
@@ -73,17 +73,17 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
      * @param validateCode
      */
     private void save(ServletWebRequest request, C validateCode) {
-        sessionStrategy.setAttribute(request, getSessionKey(request), validateCode);
+        sessionStrategy.setAttribute(request, getSessionKey(), validateCode);
     }
 
     /**
      * 构建验证码放入session时的key
      *
-     * @param request
+     * @param
      * @return
      */
-    private String getSessionKey(ServletWebRequest request) {
-        return SESSION_KEY_PREFIX + getValidateCodeType(request).toString().toUpperCase();
+    private String getSessionKey() {
+        return SESSION_KEY_PREFIX + getValidateCodeType().toString().toUpperCase();
     }
 
     /**
@@ -98,10 +98,10 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
     /**
      * 根据请求的url获取校验码的类型
      *
-     * @param request
+     * @param
      * @return
      */
-    private ValidateCodeType getValidateCodeType(ServletWebRequest request) {
+    private ValidateCodeType getValidateCodeType() {
         String type = StringUtils.substringBefore(getClass().getSimpleName(), "CodeProcessor");
         return ValidateCodeType.valueOf(type.toUpperCase());
     }
@@ -110,8 +110,8 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
     @Override
     public void validate(ServletWebRequest request) {
 
-        ValidateCodeType processorType = getValidateCodeType(request);
-        String sessionKey = getSessionKey(request);
+        ValidateCodeType processorType = getValidateCodeType();
+        String sessionKey = getSessionKey();
 
         C codeInSession = (C) sessionStrategy.getAttribute(request, sessionKey);
 
