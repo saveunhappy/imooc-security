@@ -20,6 +20,7 @@ import com.imooc.security.core.authentication.mobile.SmsCodeAuthenticationSecuri
 import com.imooc.security.core.properties.SecurityConstants;
 import com.imooc.security.core.properties.SecurityProperties;
 import com.imooc.security.core.validate.code.ValidateCodeSecurityConfig;
+import org.springframework.social.security.SpringSocialConfigurer;
 
 /**
  * @author zhailiang
@@ -43,6 +44,8 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
     @Autowired
     private ValidateCodeSecurityConfig validateCodeSecurityConfig;
 
+    @Autowired
+    private SpringSocialConfigurer imoocSocialSecurityConfig;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -51,6 +54,8 @@ public class BrowserSecurityConfig extends AbstractChannelSecurityConfig {
         http.apply(validateCodeSecurityConfig)
                 .and()
                 .apply(smsCodeAuthenticationSecurityConfig)
+                .and()
+                .apply(imoocSocialSecurityConfig)
                 .and()
                 .rememberMe()
                 .tokenRepository(persistentTokenRepository())
