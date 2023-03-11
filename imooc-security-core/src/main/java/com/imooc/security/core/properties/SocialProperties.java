@@ -8,6 +8,7 @@ package com.imooc.security.core.properties;
  *
  */
 public class SocialProperties {
+    private String filterProcessesUrl = "/auth";
 
     private QQProperties qq = new QQProperties();
 
@@ -19,4 +20,11 @@ public class SocialProperties {
         this.qq = qq;
     }
 
+    public String getFilterProcessesUrl() {
+        return filterProcessesUrl;
+    }
+
+    public void setFilterProcessesUrl(String filterProcessesUrl) {
+        this.filterProcessesUrl = filterProcessesUrl;
+    }
 }

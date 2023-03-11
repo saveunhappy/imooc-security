@@ -64,7 +64,14 @@ public class QQUserInfo {
     /**
      * 	性别。 如果获取不到则默认返回”男”
      */
+
+    private String figureurl_qq;
+
+    private String figureurl_type;
+
     private String gender;
+
+    private String gender_type;
     /**
      * 	标识用户是否为黄钻用户（0：不是；1：是）。
      */
@@ -86,6 +93,7 @@ public class QQUserInfo {
      */
     private String is_yellow_year_vip;
 
+    private String constellation;
 
     public String getRet() {
         return ret;
@@ -202,6 +210,35 @@ public class QQUserInfo {
         this.is_yellow_year_vip = is_yellow_year_vip;
     }
 
+    public String getGender_type() {
+        return gender_type;
+    }
 
+    public void setGender_type(String gender_type) {
+        this.gender_type = gender_type;
+    }
 
+    public String getConstellation() {
+        return constellation;
+    }
+
+    public void setConstellation(String constellation) {
+        this.constellation = constellation;
+    }
+
+    public String getFigureurl_qq() {
+        return figureurl_qq;
+    }
+
+    public void setFigureurl_qq(String figureurl_qq) {
+        this.figureurl_qq = figureurl_qq;
+    }
+
+    public String getFigureurl_type() {
+        return figureurl_type;
+    }
+
+    public void setFigureurl_type(String figureurl_type) {
+        this.figureurl_type = figureurl_type;
+    }
 }
