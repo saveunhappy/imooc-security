@@ -17,6 +17,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+
+
+    @PostMapping("/regist")
+    public void regist(User user) {
+
+        //注册用户
+    }
     @GetMapping
     @JsonView(User.UserSimpleView.class)
 //    public List<User> query(UserQueryCondition condition) {

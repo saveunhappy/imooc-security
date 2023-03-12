@@ -42,6 +42,7 @@ public class SocialConfig extends SocialConfigurerAdapter {
     public SpringSocialConfigurer imoocSocialSecurityConfig() {
         String filterProcessesUrl = securityProperties.getSocial().getFilterProcessesUrl();
         ImoocSpringSocialConfigurer configurer = new ImoocSpringSocialConfigurer(filterProcessesUrl);
+        configurer.signupUrl(securityProperties.getBrowser().getSignUpUrl());
         return configurer;
     }
 
