@@ -73,7 +73,10 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
      * @param validateCode
      */
     private void save(ServletWebRequest request, C validateCode) {
-        sessionStrategy.setAttribute(request, getSessionKey(), validateCode);
+        //原来是把那个对象给存进去了，但是那个对象中有个属性是不能序列化的，而且那个对象是不用存在redis中的
+        //只要那个对象的Code，所以创建一个新的对象不需要那个属性就好了，但是都要去实现那个序列化接口
+        ValidateCode code = new ValidateCode(validateCode.getCode(), validateCode.getExpireTime());
+        sessionStrategy.setAttribute(request, getSessionKey(), code);
     }
 
     /**

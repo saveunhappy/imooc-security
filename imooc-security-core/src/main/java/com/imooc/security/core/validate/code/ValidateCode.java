@@ -1,8 +1,14 @@
 package com.imooc.security.core.validate.code;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class ValidateCode {
+public class ValidateCode implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 1588203828504660915L;
 
     private String code;
 
